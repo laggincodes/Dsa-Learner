@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DSA Manager Sync</title>
+  <style>
+    body {
+      width: 280px;
+      margin: 0;
+      padding: 14px;
+      background: #0e1013;
+      color: #f3f1eb;
+      font-family: Inter, -apple-system, sans-serif;
+      font-size: 13px;
+    }
+    h3 { margin: 0 0 6px; font-size: 14px; }
+    .muted { color: #9da1a8; font-size: 12px; }
+    .box {
+      margin-top: 10px;
+      padding: 10px;
+      background: #14171c;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+    }
+    .ok { color: #b7f34d; font-weight: 600; }
+    .err { color: #f43f5e; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h3>DSA Manager Sync</h3>
+  <div class="muted">Active only on <code>leetcode.com/problems/*</code></div>
+  <div class="box" id="backendState">Checking local backend...</div>
+  <div class="box" id="lastSubBox">No accepted submission captured yet.</div>
+  <script src="popup.js"></script>
+</body>
+</html>

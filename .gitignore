@@ -1,0 +1,29 @@
+# Build outputs
+build/
+cmake-build-*/
+out/
+
+# Compiled objects & libraries
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+
+# Local runtime state & logs
+dsa_history.log
+dsa_progress.dat
+dsa_ecosystem.dat
+dsa_catalogue.dat
+dsa_intelligence.dat
+*.dat
+*.log
+
+# Editor & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

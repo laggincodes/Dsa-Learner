@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Manager Lite</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-glyph" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">DSA Manager</span>
+            <span class="brand-sub">C++17 Workbench</span>
+          </div>
+        </div>
+        <button class="icon-btn collapse-btn" id="sidebarCollapseBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="nav-list" aria-label="Primary navigation">
+        <span class="nav-group-label">Workspace</span>
+        <button class="nav-item active" data-view="dashboard" title="Overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <span class="nav-label">Overview</span>
+        </button>
+
+        <button class="nav-item" data-view="roadmap" title="DSA Roadmap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="5" cy="6" r="2.5"></circle>
+            <circle cx="19" cy="12" r="2.5"></circle>
+            <circle cx="5" cy="18" r="2.5"></circle>
+            <path d="M7.5 6H13a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2"></path>
+            <path d="M7.5 18H13a2 2 0 0 0 2-2"></path>
+          </svg>
+          <span class="nav-label">DSA Roadmap</span>
+        </button>
+
+        <button class="nav-item" data-view="analytics" title="Analytics">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <rect x="3" y="12" width="4" height="8" rx="1"></rect>
+            <rect x="10" y="7" width="4" height="13" rx="1"></rect>
+            <rect x="17" y="3" width="4" height="17" rx="1"></rect>
+          </svg>
+          <span class="nav-label">Analytics</span>
+        </button>
+
+        <button class="nav-item" data-view="progress" title="Learning Progress">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="nav-label">Progress</span>
+        </button>
+
+        <span class="nav-group-label">Intelligence</span>
+        <button class="nav-item" data-view="library" title="Question Library">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span class="nav-label">Question Library</span>
+        </button>
+
+        <button class="nav-item" data-view="topics" title="Topic Progress">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3 3"></path>
+          </svg>
+          <span class="nav-label">Topic Progress</span>
+        </button>
+
+        <button class="nav-item" data-view="solutions" title="Solution Library">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span class="nav-label">Solution Library</span>
+        </button>
+
+        <span class="nav-group-label">Practice</span>
+        <button class="nav-item" data-view="practice" title="Practice Center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+            <line x1="8" y1="9" x2="16" y2="9"></line>
+            <line x1="8" y1="13" x2="14" y2="13"></line>
+            <line x1="8" y1="17" x2="12" y2="17"></line>
+          </svg>
+          <span class="nav-label">Practice Center</span>
+        </button>
+
+        <button class="nav-item" data-view="leetcode" title="LeetCode Hub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path>
+            <path d="M12 12l8-4.5"></path>
+            <path d="M12 12v9"></path>
+            <path d="M12 12L4 7.5"></path>
+          </svg>
+          <span class="nav-label">LeetCode Hub</span>
+        </button>
+
+        <button class="nav-item" data-view="revision" title="Revision Center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          <span class="nav-label">Revision Center</span>
+        </button>
+
+        <button class="nav-item" data-view="quiz" title="Quiz Arena">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span class="nav-label">Quiz Arena</span>
+        </button>
+
+        <button class="nav-item" data-view="resources" title="Resources">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span class="nav-label">Resources</span>
+        </button>
+
+        <span class="nav-group-label">Labs</span>
+        <button class="nav-item" data-view="sorting" title="Sorting Lab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <line x1="6" y1="20" x2="6" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="18" y1="20" x2="18" y2="14"></line>
+          </svg>
+          <span class="nav-label">Sorting Lab</span>
+        </button>
+
+        <button class="nav-item" data-view="searching" title="Searching Lab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="20" y1="20" x2="16.2" y2="16.2"></line>
+          </svg>
+          <span class="nav-label">Searching Lab</span>
+        </button>
+
+        <button class="nav-item" data-view="datastructures" title="Data Structures">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <rect x="3" y="4" width="18" height="4" rx="1"></rect>
+            <rect x="3" y="10" width="18" height="4" rx="1"></rect>
+            <rect x="3" y="16" width="18" height="4" rx="1"></rect>
+          </svg>
+          <span class="nav-label">Data Structures</span>
+        </button>
+
+        <button class="nav-item" data-view="graph" title="Graph Lab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="6" cy="6" r="2.5"></circle>
+            <circle cx="18" cy="6" r="2.5"></circle>
+            <circle cx="12" cy="18" r="2.5"></circle>
+            <line x1="8.3" y1="7.2" x2="15.7" y2="6.2"></line>
+            <line x1="7.3" y1="8.2" x2="10.8" y2="15.8"></line>
+            <line x1="16.7" y1="8.2" x2="13.2" y2="15.8"></line>
+          </svg>
+          <span class="nav-label">Graph Lab</span>
+        </button>
+
+        <button class="nav-item" data-view="comparator" title="Complexity Lab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <polyline points="22 12 18 12 15 20 9 4 6 12 2 12"></polyline>
+          </svg>
+          <span class="nav-label">Complexity Lab</span>
+        </button>
+
+        <button class="nav-item" data-view="codeviewer" title="Code Library">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span class="nav-label">Code Library</span>
+        </button>
+
+        <button class="nav-item" data-view="about" title="About DSA Manager">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="12" cy="12" r="9"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span class="nav-label">About</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="server-pill" id="serverStatus" title="C++17 Backend Status">
+          <span class="status-dot"></span>
+          <span class="server-label">Connecting...</span>
+        </div>
+        <div class="version-line mono-dim">v1.0.0</div>
+      </div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="breadcrumb">
+            <span class="bc-root">DSA Manager</span>
+            <span class="bc-sep">/</span>
+            <h2 id="viewTitle">Overview</h2>
+          </div>
+          <span class="topbar-sub" id="viewSubtitle">C++17 Execution Environment</span>
+        </div>
+        <div class="topbar-right">
+          <span class="meta-chip mono" id="topbarProgressChip">0/8 modules</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- ==================== OVERVIEW ==================== -->
+        <section class="view active" id="view-dashboard">
+          <header class="editorial-header">
+            <div>
+              <p class="mono-kicker">WORKSPACE · C++17 LEARNING ENVIRONMENT</p>
+              <h3>Welcome back to DSA Manager</h3>
+              <p class="editorial-lead">
+                Learn core algorithms, visualize structures live, practice problems, and revise with spaced repetition.
+              </p>
+            </div>
+            <div class="inline-stats">
+              <div class="inline-stat">
+                <span class="inline-stat-val mono" id="statRoadmapDone">0/18</span>
+                <span class="inline-stat-lbl">Roadmap</span>
+              </div>
+              <div class="inline-stat">
+                <span class="inline-stat-val mono" id="statProblemsSolved">0</span>
+                <span class="inline-stat-lbl">Solved</span>
+              </div>
+              <div class="inline-stat">
+                <span class="inline-stat-val mono" id="statQuizAvg">0%</span>
+                <span class="inline-stat-lbl">Quiz Avg</span>
+              </div>
+            </div>
+          </header>
+
+          <div class="continue-bar" id="continueLearningBar">
+            <div class="continue-info">
+              <span class="accent-tag">Continue Learning</span>
+              <strong id="continueTitle">Time and Space Complexity</strong>
+              <span class="muted-text" id="continueDesc">Start with Foundations or jump straight to the next visualizer.</span>
+            </div>
+            <button class="btn btn-accent" id="continueBtn" data-jump="roadmap">Open Topic</button>
+          </div>
+
+          <div class="goal-bar">
+            <div class="goal-left">
+              <span class="mono-dim">Current Learning Goal</span>
+              <input type="text" id="dashGoalInput" class="goal-input" placeholder="Set your current study goal..." />
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-secondary btn-sm" id="dashSaveGoalBtn">Save Goal</button>
+              <button class="btn btn-ghost btn-sm" data-jump="analytics">Analytics</button>
+              <button class="btn btn-ghost btn-sm" data-jump="about">About</button>
+            </div>
+          </div>
+
+          <div class="surface-block compact-progress-strip">
+            <div class="block-head">
+              <span class="mono-dim">Current Learning Progress</span>
+              <span class="mono-dim" id="dashProgressLabel">0% overall</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="dashProgressFill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="editorial-grid">
+            <div class="editorial-main">
+              <section class="surface-block">
+                <div class="block-head">
+                  <h4>Quick Navigation</h4>
+                  <span class="mono-dim" id="statAlgoCount">10 modules</span>
+                </div>
+                <div class="command-list">
+                  <button class="command-row" data-jump="library">
+                    <span class="cmd-title">Question Library</span>
+                    <span class="cmd-desc">Full LeetCode catalogue, search, filters &amp; detail notes</span>
+                    <span class="cmd-meta mono" id="dashCatalogCount">0 synced</span>
+                  </button>
+                  <button class="command-row" data-jump="topics">
+                    <span class="cmd-title">Topic Progress</span>
+                    <span class="cmd-desc">Automatic topic &amp; tag mastery from solved problems</span>
+                    <span class="cmd-meta mono">Goals &amp; Diff</span>
+                  </button>
+                  <button class="command-row" data-jump="roadmap">
+                    <span class="cmd-title">DSA Roadmap</span>
+                    <span class="cmd-desc">Foundations, Data Structures &amp; Algorithms path</span>
+                    <span class="cmd-meta mono">18 Topics</span>
+                  </button>
+                  <button class="command-row" data-jump="practice">
+                    <span class="cmd-title">Practice Center</span>
+                    <span class="cmd-desc">Curated DSA problems, approaches &amp; notes</span>
+                    <span class="cmd-meta mono">23 Problems</span>
+                  </button>
+                  <button class="command-row" data-jump="leetcode">
+                    <span class="cmd-title">LeetCode Connect</span>
+                    <span class="cmd-desc">Public profile sync, extension &amp; manual tracker</span>
+                    <span class="cmd-meta mono">C++ libcurl</span>
+                  </button>
+                  <button class="command-row" data-jump="sorting">
+                    <span class="cmd-title">Sorting &amp; Visualizers</span>
+                    <span class="cmd-desc">Sorting, Searching, Stack/Queue/List/BST &amp; Graphs</span>
+                    <span class="cmd-meta mono">C++17 Engine</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="surface-block">
+                <div class="block-head">
+                  <h4>Topic Progress Overview</h4>
+                  <button class="btn btn-ghost btn-xs" data-jump="topics">All Topics</button>
+                </div>
+                <div class="activity-bars" id="dashTopicsPreview">
+                  <p class="empty-muted">Import or sync the Question Library to track topic progress.</p>
+                </div>
+              </section>
+            </div>
+
+            <aside class="editorial-rail">
+              <section class="surface-block">
+                <div class="block-head">
+                  <h4>Recent Solved Problems</h4>
+                  <button class="btn btn-ghost btn-xs" data-jump="library">Library</button>
+                </div>
+                <div class="recent-list" id="dashRecentSolved">
+                  <p class="empty-muted">No solved problems recorded yet.</p>
+                </div>
+              </section>
+
+              <section class="surface-block" style="margin-top: 14px;">
+                <div class="block-head">
+                  <h4>Upcoming Revisions</h4>
+                  <button class="btn btn-ghost btn-xs" data-jump="revision">Queue</button>
+                </div>
+                <div class="recent-list" id="dashUpcomingRevisions">
+                  <p class="empty-muted">No revisions scheduled yet.</p>
+                </div>
+              </section>
+
+              <section class="surface-block" style="margin-top: 14px;">
+                <div class="block-head">
+                  <h4>Recent Activity</h4>
+                  <div class="btn-group">
+                    <button class="btn btn-ghost btn-xs" id="refreshHistoryBtn">Refresh</button>
+                    <button class="btn btn-ghost btn-xs" id="clearHistoryBtn">Clear</button>
+                  </div>
+                </div>
+                <div class="history-feed" id="historyList">
+                  <p class="empty-muted">No operations logged yet.</p>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+          <!-- Hidden compatibility targets updated cleanly by JS -->
+          <span id="statModulesDone" class="sr-only">0/8</span>
+          <span id="statHistoryCount" class="sr-only">0</span>
+        </section>
+
+        <!-- ==================== SORTING LAB (CENTERPIECE) ==================== -->
+        <section class="view" id="view-sorting">
+          <div class="lab-toolbar">
+            <div class="segmented" id="sortAlgoTabs" role="tablist">
+              <button class="seg-btn active" data-sort-algo="bubble">Bubble Sort</button>
+              <button class="seg-btn" data-sort-algo="selection">Selection Sort</button>
+              <button class="seg-btn" data-sort-algo="insertion">Insertion Sort</button>
+            </div>
+            <select id="sortAlgoSelect" class="sr-only" aria-hidden="true">
+              <option value="bubble">Bubble Sort</option>
+              <option value="selection">Selection Sort</option>
+              <option value="insertion">Insertion Sort</option>
+            </select>
+
+            <div class="toolbar-controls">
+              <label class="compact-range">
+                <span>n=<strong class="mono" id="sortSizeLabel">16</strong></span>
+                <input type="range" id="sortSizeInput" min="4" max="36" value="16" />
+              </label>
+              <button class="btn btn-secondary btn-sm" id="sortRandomBtn">Randomize</button>
+              <div class="inline-input compact-csv">
+                <input type="text" id="sortCustomInput" placeholder="Custom: 42, 17, 89, 5" />
+                <button class="btn btn-ghost btn-sm" id="sortApplyCustomBtn">Load</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="centerpiece-canvas">
+            <div class="canvas-topbar">
+              <div class="legend-row">
+                <span class="legend-item"><i class="swatch swatch-default"></i>Unsorted</span>
+                <span class="legend-item"><i class="swatch swatch-compare"></i>Comparing</span>
+                <span class="legend-item"><i class="swatch swatch-swap"></i>Swapping</span>
+                <span class="legend-item"><i class="swatch swatch-sorted"></i>Sorted</span>
+              </div>
+              <div class="metrics-strip">
+                <span class="telemetry-item">Comparisons <strong class="mono" id="sortComparisons">0</strong></span>
+                <span class="telemetry-item">Swaps <strong class="mono" id="sortSwaps">0</strong></span>
+                <span class="telemetry-item">Step <strong class="mono" id="sortStepCounter">0 / 0</strong></span>
+              </div>
+            </div>
+
+            <div class="bars-stage centerpiece-bars" id="sortBarsStage" aria-live="polite"></div>
+
+            <div class="transport-bar">
+              <div class="btn-group">
+                <button class="btn btn-accent" id="sortStartBtn">Start</button>
+                <button class="btn btn-secondary" id="sortPauseBtn" disabled>Pause</button>
+                <button class="btn btn-ghost" id="sortStepBtn">Step</button>
+                <button class="btn btn-ghost" id="sortResetBtn">Reset</button>
+              </div>
+
+              <div class="narration-inline mono" id="sortNarration">
+                Ready. Press Start to trace C++ execution.
+              </div>
+
+              <label class="compact-range">
+                <span>Delay <strong class="mono" id="sortSpeedLabel">180 ms</strong></span>
+                <input type="range" id="sortSpeedInput" min="25" max="650" step="15" value="180" />
+              </label>
+            </div>
+          </div>
+
+          <div class="complexity-strip" id="sortComplexityPanel"></div>
+        </section>
+
+        <!-- ==================== SEARCHING LAB ==================== -->
+        <section class="view" id="view-searching">
+          <div class="lab-toolbar">
+            <div class="segmented" id="searchAlgoTabs">
+              <button class="seg-btn active" data-search-algo="linear">Linear Search</button>
+              <button class="seg-btn" data-search-algo="binary">Binary Search</button>
+            </div>
+            <select id="searchAlgoSelect" class="sr-only" aria-hidden="true">
+              <option value="linear">Linear Search</option>
+              <option value="binary">Binary Search</option>
+            </select>
+
+            <div class="toolbar-controls">
+              <label class="compact-field">
+                <span>Target</span>
+                <input type="number" id="searchTargetInput" value="42" />
+              </label>
+              <div class="inline-input compact-csv">
+                <input type="text" id="searchCustomInput" placeholder="8, 15, 23, 42, 67" />
+                <button class="btn btn-ghost btn-sm" id="searchApplyCustomBtn">Load</button>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="searchRandomBtn">Random</button>
+              <button class="btn btn-ghost btn-sm" id="searchSortArrayBtn">Sort Asc</button>
+              <label class="checkbox-label">
+                <input type="checkbox" id="searchAutoSortCheck" />
+                <span>Auto-sort</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="centerpiece-canvas">
+            <div class="canvas-topbar">
+              <div class="legend-row">
+                <span class="legend-item"><i class="swatch swatch-default"></i>Active Range</span>
+                <span class="legend-item"><i class="swatch swatch-compare"></i>Inspecting</span>
+                <span class="legend-item"><i class="swatch swatch-sorted"></i>Found</span>
+                <span class="legend-item"><i class="swatch swatch-dim"></i>Eliminated</span>
+              </div>
+              <div class="metrics-strip">
+                <span class="telemetry-item">Comparisons <strong class="mono" id="searchComparisons">0</strong></span>
+                <span class="telemetry-item">Status <strong class="mono" id="searchResultBadge">Ready</strong></span>
+              </div>
+            </div>
+
+            <div class="search-stage" id="searchStage" aria-live="polite"></div>
+
+            <div class="transport-bar">
+              <div class="btn-group">
+                <button class="btn btn-accent" id="searchStartBtn">Start Search</button>
+                <button class="btn btn-secondary" id="searchPauseBtn" disabled>Pause</button>
+                <button class="btn btn-ghost" id="searchResetBtn">Reset</button>
+              </div>
+              <div class="narration-inline mono" id="searchNarration">
+                Enter a target value and run Linear or Binary Search.
+              </div>
+              <label class="compact-range">
+                <span>Delay <strong class="mono" id="searchSpeedLabel">360 ms</strong></span>
+                <input type="range" id="searchSpeedInput" min="80" max="900" step="20" value="360" />
+              </label>
+            </div>
+          </div>
+
+          <div class="complexity-strip" id="searchComplexityPanel"></div>
+        </section>
+
+        <!-- ==================== DATA STRUCTURES ==================== -->
+        <section class="view" id="view-datastructures">
+          <div class="lab-toolbar">
+            <div class="segmented" id="dsTabs">
+              <button class="seg-btn active" data-ds-tab="stack">Stack (LIFO)</button>
+              <button class="seg-btn" data-ds-tab="queue">Queue (FIFO)</button>
+              <button class="seg-btn" data-ds-tab="list">Linked List</button>
+              <button class="seg-btn" data-ds-tab="bst">Binary Search Tree</button>
+            </div>
+          </div>
+
+          <!-- Stack Tab -->
+          <div class="ds-panel active" id="ds-tab-stack">
+            <div class="ds-workspace">
+              <div class="ds-stage-card">
+                <div class="canvas-topbar">
+                  <span class="mono-dim">std::stack&lt;int&gt; • LIFO</span>
+                  <div class="metrics-strip">
+                    <span class="telemetry-item">Size <strong class="mono" id="stackSizeText">0 / 8</strong></span>
+                    <span class="telemetry-item">Top <strong class="mono" id="stackTopText">Empty</strong></span>
+                  </div>
+                </div>
+                <div class="stack-well-wrap">
+                  <div class="stack-well" id="stackVisual"></div>
+                </div>
+                <div class="ds-feedback mono" id="stackFeedback">Ready for Stack operations.</div>
+              </div>
+
+              <div class="ds-control-rail">
+                <h5>Operations</h5>
+                <div class="field">
+                  <label for="stackValueInput">Integer Value</label>
+                  <input type="number" id="stackValueInput" value="10" />
+                </div>
+                <div class="rail-btn-grid">
+                  <button class="btn btn-accent" id="stackPushBtn">Push</button>
+                  <button class="btn btn-secondary" id="stackPopBtn">Pop</button>
+                  <button class="btn btn-ghost" id="stackPeekBtn">Peek</button>
+                  <button class="btn btn-danger" id="stackClearBtn">Clear</button>
+                </div>
+                <div class="field">
+                  <label for="stackCapSelect">Capacity Limit</label>
+                  <select id="stackCapSelect">
+                    <option value="4">4 slots</option>
+                    <option value="6">6 slots</option>
+                    <option value="8" selected>8 slots</option>
+                    <option value="12">12 slots</option>
+                    <option value="16">16 slots</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Queue Tab -->
+          <div class="ds-panel" id="ds-tab-queue">
+            <div class="ds-workspace">
+              <div class="ds-stage-card">
+                <div class="canvas-topbar">
+                  <span class="mono-dim">std::queue&lt;int&gt; • FIFO</span>
+                  <div class="metrics-strip">
+                    <span class="telemetry-item">Size <strong class="mono" id="queueSizeText">0 / 8</strong></span>
+                    <span class="telemetry-item">Front <strong class="mono" id="queueFrontText">Empty</strong></span>
+                  </div>
+                </div>
+                <div class="queue-lane-wrap">
+                  <div class="queue-lane" id="queueVisual"></div>
+                </div>
+                <div class="ds-feedback mono" id="queueFeedback">Ready for Queue operations.</div>
+              </div>
+
+              <div class="ds-control-rail">
+                <h5>Operations</h5>
+                <div class="field">
+                  <label for="queueValueInput">Integer Value</label>
+                  <input type="number" id="queueValueInput" value="25" />
+                </div>
+                <div class="rail-btn-grid">
+                  <button class="btn btn-accent" id="queueEnqueueBtn">Enqueue</button>
+                  <button class="btn btn-secondary" id="queueDequeueBtn">Dequeue</button>
+                  <button class="btn btn-ghost" id="queueFrontBtn">Front</button>
+                  <button class="btn btn-danger" id="queueClearBtn">Clear</button>
+                </div>
+                <div class="field">
+                  <label for="queueCapSelect">Capacity Limit</label>
+                  <select id="queueCapSelect">
+                    <option value="4">4 slots</option>
+                    <option value="6">6 slots</option>
+                    <option value="8" selected>8 slots</option>
+                    <option value="12">12 slots</option>
+                    <option value="16">16 slots</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Linked List Tab -->
+          <div class="ds-panel" id="ds-tab-list">
+            <div class="ds-workspace">
+              <div class="ds-stage-card">
+                <div class="canvas-topbar">
+                  <span class="mono-dim">Singly Linked List • std::unique_ptr&lt;Node&gt;</span>
+                  <div class="metrics-strip">
+                    <span class="telemetry-item">Nodes <strong class="mono" id="listSizeText">0 / 10</strong></span>
+                    <span class="telemetry-item">Head <strong class="mono" id="listHeadText">NULL</strong></span>
+                  </div>
+                </div>
+                <div class="linkedlist-stage" id="listVisual"></div>
+                <div class="ds-feedback mono" id="listFeedback">Linked List ready.</div>
+              </div>
+
+              <div class="ds-control-rail">
+                <h5>Node Operations</h5>
+                <div class="field">
+                  <label for="listValueInput">Integer Value</label>
+                  <input type="number" id="listValueInput" value="33" />
+                </div>
+                <div class="rail-btn-grid">
+                  <button class="btn btn-accent" id="listInsertHeadBtn">Insert Head</button>
+                  <button class="btn btn-secondary" id="listInsertTailBtn">Insert Tail</button>
+                  <button class="btn btn-ghost" id="listSearchBtn">Find</button>
+                  <button class="btn btn-danger" id="listDeleteValBtn">Delete Val</button>
+                  <button class="btn btn-ghost" id="listRemoveHeadBtn">Pop Head</button>
+                  <button class="btn btn-ghost" id="listSampleBtn">Sample</button>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="listClearBtn">Clear List</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BST Tab -->
+          <div class="ds-panel" id="ds-tab-bst">
+            <div class="ds-workspace">
+              <div class="ds-stage-card">
+                <div class="canvas-topbar">
+                  <span class="mono-dim">Binary Search Tree • Invariant: left &lt; node &lt; right</span>
+                  <div class="metrics-strip">
+                    <span class="telemetry-item">Nodes <strong class="mono" id="bstNodeCount">0</strong></span>
+                    <span class="telemetry-item">Height <strong class="mono" id="bstHeight">0</strong></span>
+                  </div>
+                </div>
+                <div class="svg-stage" id="bstSvgWrap">
+                  <svg id="bstSvg" viewBox="0 0 860 360" preserveAspectRatio="xMidYMid meet"></svg>
+                </div>
+                <div class="traversal-strip" id="bstTraversalStrip"></div>
+                <div class="ds-feedback mono" id="bstNarration">BST ready. Insert, search, delete, or traverse.</div>
+              </div>
+
+              <div class="ds-control-rail">
+                <h5>BST Operations</h5>
+                <div class="field">
+                  <label for="bstValueInput">Node Key</label>
+                  <input type="number" id="bstValueInput" value="45" />
+                </div>
+                <div class="rail-btn-grid">
+                  <button class="btn btn-accent" id="bstInsertBtn">Insert</button>
+                  <button class="btn btn-secondary" id="bstSearchBtn">Search</button>
+                  <button class="btn btn-danger" id="bstDeleteBtn">Delete</button>
+                  <button class="btn btn-ghost" id="bstSampleBtn">Sample</button>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="bstClearBtn">Clear Tree</button>
+                <div class="rail-divider"></div>
+                <h5>Traversals</h5>
+                <div class="rail-stack">
+                  <button class="btn btn-secondary btn-sm" data-bst-trav="inorder">Inorder (L·R·Rt)</button>
+                  <button class="btn btn-secondary btn-sm" data-bst-trav="preorder">Preorder (Rt·L·R)</button>
+                  <button class="btn btn-secondary btn-sm" data-bst-trav="postorder">Postorder (L·R·Rt)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== GRAPH LAB ==================== -->
+        <section class="view" id="view-graph">
+          <div class="ds-workspace graph-workspace">
+            <div class="ds-stage-card">
+              <div class="canvas-topbar">
+                <div class="legend-row">
+                  <span class="legend-item"><i class="swatch swatch-default"></i>Unvisited</span>
+                  <span class="legend-item"><i class="swatch swatch-compare"></i>Active</span>
+                  <span class="legend-item"><i class="swatch swatch-sorted"></i>Visited</span>
+                </div>
+                <div class="metrics-strip">
+                  <span class="telemetry-item">Frontier <strong class="mono" id="graphFrontierText">[]</strong></span>
+                  <span class="telemetry-item">Order <strong class="mono" id="graphOrderText">[]</strong></span>
+                </div>
+              </div>
+              <div class="svg-stage graph-stage" id="graphSvgWrap">
+                <svg id="graphSvg" viewBox="0 0 860 400" preserveAspectRatio="xMidYMid meet"></svg>
+              </div>
+              <div class="ds-feedback mono" id="graphNarration">Build a graph or run BFS / DFS from any start vertex.</div>
+            </div>
+
+            <div class="ds-control-rail">
+              <h5>Traversal</h5>
+              <div class="field">
+                <label for="graphStartSelect">Start Vertex</label>
+                <select id="graphStartSelect"></select>
+              </div>
+              <div class="rail-btn-grid">
+                <button class="btn btn-accent" id="graphBfsBtn">Run BFS</button>
+                <button class="btn btn-secondary" id="graphDfsBtn">Run DFS</button>
+                <button class="btn btn-ghost" id="graphPauseBtn" disabled>Pause</button>
+                <button class="btn btn-ghost" id="graphSampleBtn">Sample</button>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" id="graphDirectedCheck" />
+                <span>Directed edges</span>
+              </label>
+
+              <div class="rail-divider"></div>
+              <h5>Vertices</h5>
+              <div class="inline-input">
+                <input type="text" id="graphVertexInput" placeholder="Label (A-Z)" maxlength="4" />
+                <button class="btn btn-secondary btn-sm" id="graphAddVertexBtn">Add</button>
+                <button class="btn btn-ghost btn-sm" id="graphDelVertexBtn">Del</button>
+              </div>
+
+              <div class="rail-divider"></div>
+              <h5>Edges</h5>
+              <div class="rail-btn-grid">
+                <select id="graphFromSelect" aria-label="Edge from"></select>
+                <select id="graphToSelect" aria-label="Edge to"></select>
+                <button class="btn btn-secondary btn-sm" id="graphAddEdgeBtn">Link</button>
+                <button class="btn btn-ghost btn-sm" id="graphDelEdgeBtn">Unlink</button>
+              </div>
+              <button class="btn btn-danger btn-sm" id="graphClearBtn">Clear Graph</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== COMPLEXITY LAB ==================== -->
+        <section class="view" id="view-comparator">
+          <div class="lab-toolbar">
+            <div class="toolbar-controls">
+              <label class="compact-field">
+                <span>Size</span>
+                <select id="compSizeSelect">
+                  <option value="50">50</option>
+                  <option value="200" selected>200</option>
+                  <option value="500">500</option>
+                  <option value="1000">1000</option>
+                </select>
+              </label>
+              <label class="compact-field">
+                <span>Order</span>
+                <select id="compPatternSelect">
+                  <option value="random" selected>Random</option>
+                  <option value="reversed">Reversed</option>
+                  <option value="nearly_sorted">Nearly Sorted</option>
+                  <option value="sorted">Sorted</option>
+                </select>
+              </label>
+              <div class="inline-input compact-csv">
+                <input type="text" id="compCustomInput" placeholder="Optional custom array" />
+              </div>
+              <button class="btn btn-accent" id="compRunBtn">Run Benchmark</button>
+            </div>
+
+            <div class="segmented" id="compMetricTabs">
+              <button class="seg-btn active" data-metric="time">Time (µs)</button>
+              <button class="seg-btn" data-metric="comparisons">Comparisons</button>
+              <button class="seg-btn" data-metric="swaps">Swaps</button>
+            </div>
+          </div>
+
+          <div class="surface-block">
+            <div class="block-head">
+              <h4>Measured C++ Benchmark</h4>
+              <span class="mono-dim" id="compRunMeta">Ready to benchmark Bubble, Selection, and Insertion Sort</span>
+            </div>
+            <div class="comp-chart" id="compChart">
+              <p class="empty-muted">Run a benchmark to measure live C++ execution time, comparisons, and swaps.</p>
+            </div>
+          </div>
+
+          <div class="surface-block">
+            <div class="block-head">
+              <h4>Measured Telemetry vs Theoretical Big-O</h4>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Algorithm</th>
+                    <th>Measured Time</th>
+                    <th>Comparisons</th>
+                    <th>Swaps</th>
+                    <th>Best</th>
+                    <th>Average</th>
+                    <th>Worst</th>
+                    <th>Space</th>
+                  </tr>
+                </thead>
+                <tbody id="compTableBody"></tbody>
+              </table>
+            </div>
+            <div class="info-callout">
+              <strong>Theoretical Complexity vs Measured Execution Time:</strong>
+              Big-O captures asymptotic operation growth as <em>n</em> scales, independent of hardware.
+              Measured time (via <code>std::chrono::steady_clock</code>) reflects constant factors, memory writes, branch prediction, and cache behavior — e.g. Selection Sort executes far fewer swaps than Bubble Sort despite identical O(n²) comparison bounds.
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== QUIZ ARENA ==================== -->
+        <section class="view" id="view-quiz">
+          <div class="quiz-container">
+            <div class="lab-toolbar">
+              <div class="toolbar-controls">
+                <label class="compact-field">
+                  <span>Topic</span>
+                  <select id="quizCategorySelect">
+                    <option value="all">All Topics</option>
+                    <option value="Sorting">Sorting</option>
+                    <option value="Searching">Searching</option>
+                    <option value="Stacks &amp; Queues">Stacks &amp; Queues</option>
+                    <option value="Trees">Trees</option>
+                    <option value="Time Complexity">Time Complexity</option>
+                  </select>
+                </label>
+                <label class="compact-field">
+                  <span>Length</span>
+                  <select id="quizCountSelect">
+                    <option value="5">5 Questions</option>
+                    <option value="8" selected>8 Questions</option>
+                    <option value="12">12 Questions</option>
+                    <option value="15">15 Questions</option>
+                  </select>
+                </label>
+              </div>
+              <button class="btn btn-accent" id="quizStartBtn">Start Quiz</button>
+            </div>
+
+            <div class="surface-block quiz-stage" id="quizStagePanel">
+              <p class="empty-muted">Select a topic and click Start Quiz. Question order is randomized in C++.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== LEARNING PROGRESS ==================== -->
+        <section class="view" id="view-progress">
+          <div class="editorial-header">
+            <div>
+              <p class="mono-kicker">PERSISTENT STORAGE • dsa_progress.dat</p>
+              <h3>Learning Progress</h3>
+              <p class="editorial-lead">Module completions and quiz accuracy saved on disk across restarts.</p>
+            </div>
+            <div class="inline-stats">
+              <div class="inline-stat">
+                <span class="inline-stat-val mono" id="progCompletedNum">0/8</span>
+                <span class="inline-stat-lbl">Modules</span>
+              </div>
+              <div class="inline-stat">
+                <span class="inline-stat-val mono" id="progAttemptsNum">0</span>
+                <span class="inline-stat-lbl">Quizzes</span>
+              </div>
+              <div class="inline-stat">
+                <span class="inline-stat-val mono" id="progAvgNum">0%</span>
+                <span class="inline-stat-lbl">Avg Accuracy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="surface-block">
+            <div class="block-head">
+              <h4>Path Completion (<span class="mono" id="progPercentText">0%</span>)</h4>
+              <button class="btn btn-danger btn-xs" id="progResetBtn">Reset Progress</button>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progBarFill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="editorial-grid two-even">
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Module Checklist</h4>
+              </div>
+              <div class="checklist" id="progModulesList"></div>
+            </section>
+
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Quiz Score History</h4>
+              </div>
+              <div class="history-feed" id="progQuizList"></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- ==================== CODE LIBRARY ==================== -->
+        <section class="view" id="view-codeviewer">
+          <div class="lab-toolbar">
+            <div class="segmented" id="codeLibraryModeTabs">
+              <button class="seg-btn active" data-lib-mode="code">C++17 &amp; Pseudocode</button>
+              <button class="seg-btn" data-lib-mode="reference">Complexity Matrix</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="copyCppCodeBtn">Copy C++ Source</button>
+          </div>
+
+          <div id="codeModePanel">
+            <div class="pill-strip" id="codeSelectorPills"></div>
+            <div class="complexity-strip" id="codeComplexityHeader"></div>
+            <div class="editorial-grid two-even">
+              <section class="surface-block">
+                <div class="block-head">
+                  <h4>C++17 Implementation</h4>
+                  <span class="mono-dim">C++17</span>
+                </div>
+                <pre class="code-block"><code id="cppCodeView"></code></pre>
+              </section>
+              <section class="surface-block">
+                <div class="block-head">
+                  <h4>Pseudocode</h4>
+                  <span class="mono-dim">Algorithm</span>
+                </div>
+                <pre class="code-block"><code id="pseudoCodeView"></code></pre>
+              </section>
+            </div>
+          </div>
+
+          <div id="referenceModePanel" style="display: none;">
+            <div class="lab-toolbar" style="margin-bottom: 14px;">
+              <div class="segmented" id="refFilterGroup">
+                <button class="seg-btn active" data-filter="all">All</button>
+                <button class="seg-btn" data-filter="Sorting">Sorting</button>
+                <button class="seg-btn" data-filter="Searching">Searching</button>
+                <button class="seg-btn" data-filter="Data Structure">Structures</button>
+                <button class="seg-btn" data-filter="Trees">Trees</button>
+                <button class="seg-btn" data-filter="Graphs">Graphs</button>
+              </div>
+            </div>
+            <div class="ref-grid" id="referenceGrid"></div>
+          </div>
+        </section>
+
+        <!-- ==================== DSA ROADMAP ==================== -->
+        <section class="view" id="view-roadmap">
+          <div class="lab-toolbar">
+            <div class="segmented" id="roadmapStageTabs">
+              <button class="seg-btn active" data-stage="all">All Stages</button>
+              <button class="seg-btn" data-stage="FOUNDATIONS">Foundations</button>
+              <button class="seg-btn" data-stage="DATA STRUCTURES">Data Structures</button>
+              <button class="seg-btn" data-stage="ALGORITHMS">Algorithms</button>
+            </div>
+            <span class="mono-dim" id="roadmapSummaryText">0 / 18 topics completed</span>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="roadmapProgressFill" style="width: 0%"></div>
+          </div>
+
+          <div class="roadmap-stages" id="roadmapContainer"></div>
+        </section>
+
+        <!-- ==================== PRACTICE CENTER ==================== -->
+        <section class="view" id="view-practice">
+          <div class="lab-toolbar">
+            <div class="toolbar-controls">
+              <input type="text" id="practiceSearchInput" placeholder="Search problem title..." />
+              <select id="practiceTopicFilter">
+                <option value="all">All Topics</option>
+              </select>
+              <select id="practiceDiffFilter">
+                <option value="all">All Difficulties</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+              <select id="practiceFlagFilter">
+                <option value="all">All Statuses</option>
+                <option value="solved">Solved</option>
+                <option value="unsolved">Unsolved</option>
+                <option value="bookmarked">Bookmarked</option>
+                <option value="revision">Needs Revision</option>
+              </select>
+            </div>
+            <span class="mono-dim" id="practiceCountText">0 problems</span>
+          </div>
+
+          <div class="ds-workspace practice-workspace">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Problem Library</h4>
+              </div>
+              <div class="problem-list" id="practiceList"></div>
+            </div>
+
+            <div class="surface-block" id="practiceDetailPane">
+              <p class="empty-muted">Select any problem to inspect the prompt, hint, approach, and save notes.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== LEETCODE HUB ==================== -->
+        <section class="view" id="view-leetcode">
+          <div class="surface-block">
+            <div class="block-head">
+              <h4>LeetCode Public Profile &amp; Sync</h4>
+              <span class="mono-dim" id="lcSyncMeta">Not synced yet</span>
+            </div>
+            <div class="toolbar-controls" style="justify-content: space-between;">
+              <div class="inline-input" style="flex: 1; max-width: 520px;">
+                <input type="text" id="lcUsernameInput" placeholder="Enter LeetCode username (no password required)" />
+                <button class="btn btn-secondary btn-sm" id="lcSaveUserBtn">Save</button>
+                <button class="btn btn-accent btn-sm" id="lcSyncProfileBtn">Sync Public Profile</button>
+              </div>
+              <div class="btn-group">
+                <a class="btn btn-ghost btn-sm" id="lcOpenProfileBtn" href="https://leetcode.com/problemset/" target="_blank" rel="noopener noreferrer">Open Profile</a>
+                <a class="btn btn-ghost btn-sm" href="https://leetcode.com/problemset/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+              </div>
+            </div>
+
+            <div class="analytics-kpi-row" style="margin-top: 4px;">
+              <div class="cx-box"><span>Public Total Solved</span><strong id="lcPubTotal">0</strong></div>
+              <div class="cx-box"><span>Public Easy</span><strong id="lcPubEasy">0</strong></div>
+              <div class="cx-box"><span>Public Medium</span><strong id="lcPubMedium">0</strong></div>
+              <div class="cx-box"><span>Public Hard</span><strong id="lcPubHard">0</strong></div>
+              <div class="cx-box"><span>Global Ranking</span><strong id="lcPubRank">-</strong></div>
+              <div class="cx-box"><span>Extension Events</span><strong id="lcExtCount">0</strong></div>
+            </div>
+
+            <p class="muted-text" style="font-size: 0.79rem;">
+              Scope note: Public LeetCode GraphQL provides aggregate solved counts and up to 20 recent accepted submissions only (never full private submission history, passwords, or cookies). Manually imported submissions and manually marked problems are tracked separately below.
+            </p>
+          </div>
+
+          <div class="editorial-grid two-even">
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Recent &amp; Detected Submissions</h4>
+                <button class="btn btn-ghost btn-xs" id="lcToggleImportSubBtn">Import History JSON</button>
+              </div>
+              <div id="lcImportSubBox" style="display:none; gap:8px; flex-direction:column;">
+                <textarea id="lcImportSubInput" rows="3" placeholder='[{"title":"Two Sum","slug":"two-sum","difficulty":"Easy","timestamp":"2026-11-25 12:00:00"}]'></textarea>
+                <button class="btn btn-secondary btn-xs" id="lcImportSubBtn">Import Submissions</button>
+              </div>
+              <div class="problem-list" id="lcRecentSubList">
+                <p class="empty-muted">Sync your public profile, import JSON, or solve via the browser extension.</p>
+              </div>
+            </section>
+
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Chromium Extension (Auto-Detection)</h4>
+                <span class="badge" id="extStatusBadge">Waiting</span>
+              </div>
+              <p class="muted-text" style="font-size: 0.83rem;">
+                A lightweight Manifest V3 extension is included in <code>browser-extension/</code>. It observes <code>Accepted</code> results strictly on <code>leetcode.com/problems/*</code> without reading passwords or cookies and sends problem metadata to <code>http://127.0.0.1:8080/api/extension/submission</code>.
+              </p>
+              <div class="info-callout mono" style="font-size: 0.76rem;">
+                1. Open chrome://extensions -> Enable Developer Mode<br />
+                2. Click Load Unpacked -> Select Projects/dsa-manager-lite/browser-extension<br />
+                3. Last extension event: <span id="extLastSeenText">None recorded</span>
+              </div>
+            </section>
+          </div>
+
+          <div class="surface-block">
+            <div class="block-head">
+              <h4>Manual Problem Tracker (<span class="mono" id="lcTrackedCount">0</span>)</h4>
+              <div class="toolbar-controls">
+                <select id="lcFilterTopic"><option value="all">All Topics</option></select>
+                <select id="lcFilterDiff">
+                  <option value="all">All Difficulties</option>
+                  <option value="Easy">Easy</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hard">Hard</option>
+                </select>
+                <select id="lcFilterStatus">
+                  <option value="all">All Statuses</option>
+                  <option value="Not Started">Not Started</option>
+                  <option value="Attempted">Attempted</option>
+                  <option value="Solved">Solved</option>
+                  <option value="Needs Revision">Needs Revision</option>
+                </select>
+              </div>
+            </div>
+            <div class="lc-add-grid">
+              <input type="text" id="lcAddTitle" placeholder="Problem title (e.g. LRU Cache)" />
+              <input type="text" id="lcAddUrl" placeholder="https://leetcode.com/problems/..." />
+              <select id="lcAddDifficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+              <input type="text" id="lcAddTopic" placeholder="Topic (e.g. Trees, DP)" value="Arrays" />
+              <select id="lcAddStatus">
+                <option value="Not Started">Not Started</option>
+                <option value="Attempted">Attempted</option>
+                <option value="Solved">Solved</option>
+                <option value="Needs Revision">Needs Revision</option>
+              </select>
+              <button class="btn btn-accent btn-sm" id="lcAddBtn">Add Problem</button>
+            </div>
+            <input type="text" id="lcAddNotes" placeholder="Optional personal notes..." />
+            <div class="problem-list" id="lcProblemList"></div>
+          </div>
+        </section>
+
+        <!-- ==================== REVISION CENTER ==================== -->
+        <section class="view" id="view-revision">
+          <div class="lab-toolbar">
+            <div class="segmented" id="revisionTabs">
+              <button class="seg-btn active" data-rev-tab="problems">Problem Revision Queue</button>
+              <button class="seg-btn" data-rev-tab="flashcards">Flashcards</button>
+              <button class="seg-btn" data-rev-tab="needs">Curated Queue</button>
+              <button class="seg-btn" data-rev-tab="mistakes">Saved Mistakes</button>
+            </div>
+            <span class="mono-dim" id="revSummaryChip">0 due</span>
+          </div>
+
+          <div class="rev-panel active" id="rev-tab-problems">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Catalogue Problems Scheduled for Revision</h4>
+                <span class="mono-dim" id="intelRevCount">0 problems</span>
+              </div>
+              <div class="problem-list" id="intelRevList">
+                <p class="empty-muted">Mark any Question Library problem as "Needs Revision" to schedule spaced repetition reviews.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rev-panel" id="rev-tab-flashcards">
+            <div class="quiz-container">
+              <div class="toolbar-controls" style="justify-content: space-between;">
+                <div class="segmented" id="flashcardCatTabs">
+                  <button class="seg-btn active" data-fc-cat="all">All</button>
+                  <button class="seg-btn" data-fc-cat="Concept">Concepts</button>
+                  <button class="seg-btn" data-fc-cat="Complexity">Complexity</button>
+                  <button class="seg-btn" data-fc-cat="Algorithm">Algorithms</button>
+                </div>
+                <span class="mono-dim" id="fcPositionText">1 / 8</span>
+              </div>
+
+              <div class="surface-block flashcard-stage" id="flashcardStage"></div>
+            </div>
+          </div>
+
+          <div class="rev-panel" id="rev-tab-needs">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Problems Marked "Needs Revision"</h4>
+              </div>
+              <div class="problem-list" id="revNeedsList"></div>
+            </div>
+          </div>
+
+          <div class="rev-panel" id="rev-tab-mistakes">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Log a Mistake / Edge Case</h4>
+              </div>
+              <div class="lc-add-grid">
+                <input type="text" id="mistakeTitleInput" placeholder="Mistake title (e.g. Overflow in mid calculation)" />
+                <input type="text" id="mistakeTopicInput" placeholder="Topic (e.g. Searching)" value="Searching" />
+                <button class="btn btn-accent btn-sm" id="mistakeAddBtn">Save Mistake</button>
+              </div>
+              <textarea id="mistakeNoteInput" rows="2" placeholder="Describe what went wrong and the fix..."></textarea>
+            </div>
+
+            <div class="surface-block" style="margin-top: 14px;">
+              <div class="block-head">
+                <h4>Saved Mistake Notes</h4>
+              </div>
+              <div class="problem-list" id="mistakesList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== RESOURCES ==================== -->
+        <section class="view" id="view-resources">
+          <div class="editorial-header">
+            <div>
+              <p class="mono-kicker">CURATED REFERENCES</p>
+              <h3>External Learning Resources</h3>
+              <p class="editorial-lead">Trusted problem platforms, competitive programming guides, and C++ documentation.</p>
+            </div>
+          </div>
+          <div class="ref-grid" id="resourcesGrid"></div>
+        </section>
+
+        <!-- ==================== ANALYTICS ==================== -->
+        <section class="view" id="view-analytics">
+          <div class="editorial-header">
+            <div>
+              <p class="mono-kicker">TELEMETRY · REAL SAVED USER ACTIVITY</p>
+              <h3>Learning Analytics</h3>
+              <p class="editorial-lead">Computed live by C++17 from your persisted practice, roadmap, quizzes, and revision logs.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="analyticsRefreshBtn">Refresh Analytics</button>
+          </div>
+
+          <div class="analytics-kpi-row">
+            <div class="cx-box"><span>Total Solved</span><strong id="anSolved">0</strong></div>
+            <div class="cx-box"><span>Total Attempted</span><strong id="anAttempted">0</strong></div>
+            <div class="cx-box"><span>Easy / Med / Hard</span><strong id="anDiffSplit">0 / 0 / 0</strong></div>
+            <div class="cx-box"><span>Current Streak</span><strong id="anStreak">0d</strong></div>
+            <div class="cx-box"><span>Topic Completion</span><strong id="anTopicPct">0%</strong></div>
+            <div class="cx-box"><span>Quiz Avg / Rev</span><strong id="anQuizAvg">0%</strong></div>
+          </div>
+
+          <div class="editorial-grid two-even">
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Weekly Activity (Last 7 Days)</h4>
+              </div>
+              <div class="weekly-bars" id="anWeeklyBars"></div>
+            </section>
+
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Daily Solving Heatmap (28 Days)</h4>
+                <span class="mono-dim">Less · More</span>
+              </div>
+              <div class="heatmap-grid" id="anHeatmapGrid"></div>
+            </section>
+          </div>
+
+          <div class="editorial-grid two-even">
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Most Practiced Topics</h4>
+              </div>
+              <div class="activity-bars" id="anTopTopics"></div>
+            </section>
+
+            <section class="surface-block">
+              <div class="block-head">
+                <h4>Weakest Topics &amp; Revision Health</h4>
+              </div>
+              <div class="checklist" id="anRevisionStats"></div>
+            </section>
+          </div>
+          <span id="anRevReviews" class="sr-only">0</span>
+          <span id="anNeedsRev" class="sr-only">0</span>
+        </section>
+
+        <!-- ==================== QUESTION LIBRARY ==================== -->
+        <section class="view" id="view-library">
+          <div class="lab-toolbar">
+            <div class="toolbar-controls">
+              <button class="btn btn-accent btn-sm" id="libSyncBtn">Sync LeetCode Catalogue</button>
+              <button class="btn btn-secondary btn-sm" id="libToggleImportBtn">Import JSON</button>
+              <span class="mono-dim" id="libSyncMeta">0 problems · Not synced</span>
+            </div>
+            <span class="mono-dim" id="libCountMeta">0 matching</span>
+          </div>
+
+          <div class="surface-block" id="libImportPanel" style="display:none;">
+            <div class="block-head">
+              <h4>Import LeetCode Catalogue JSON</h4>
+              <span class="mono-dim">Supports LeetCode GraphQL or /api/problems/all/ JSON</span>
+            </div>
+            <textarea id="libImportInput" rows="4" placeholder='Paste LeetCode JSON or upload a .json file below...'></textarea>
+            <div class="toolbar-controls">
+              <input type="file" id="libImportFile" accept=".json" />
+              <button class="btn btn-accent btn-sm" id="libImportBtn">Import Catalogue</button>
+            </div>
+          </div>
+
+          <div class="lab-toolbar">
+            <div class="toolbar-controls">
+              <input type="text" id="libSearchInput" placeholder="Search by ID or title..." />
+              <select id="libDiffFilter">
+                <option value="all">All Difficulties</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+              <select id="libTopicFilter">
+                <option value="all">All Topics / Tags</option>
+              </select>
+              <select id="libAvailFilter">
+                <option value="all">Free &amp; Premium</option>
+                <option value="free">Free Only</option>
+                <option value="premium">Premium Only</option>
+              </select>
+              <select id="libStatusFilter">
+                <option value="all">All Statuses</option>
+                <option value="Not Started">Not Started</option>
+                <option value="Attempted">Attempted</option>
+                <option value="Solved">Solved</option>
+                <option value="Needs Revision">Needs Revision</option>
+                <option value="Bookmarked">Bookmarked</option>
+              </select>
+              <select id="libSortBy">
+                <option value="id">Sort: ID</option>
+                <option value="title">Sort: Title</option>
+                <option value="difficulty">Sort: Difficulty</option>
+              </select>
+              <select id="libSortDir">
+                <option value="asc">Asc</option>
+                <option value="desc">Desc</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="surface-block">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Topics</th>
+                    <th>Difficulty</th>
+                    <th>Access</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="libTableBody"></tbody>
+              </table>
+            </div>
+            <div class="transport-bar">
+              <button class="btn btn-secondary btn-sm" id="libPrevPageBtn">Previous</button>
+              <span class="mono-dim" id="libPageInfo">Page 1 of 1</span>
+              <button class="btn btn-secondary btn-sm" id="libNextPageBtn">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== PROBLEM DETAIL PAGE ==================== -->
+        <section class="view" id="view-problem-detail">
+          <div class="lab-toolbar">
+            <button class="btn btn-ghost btn-sm" id="pdBackBtn">Back to Question Library</button>
+            <div class="btn-group">
+              <select id="pdStatusSelect">
+                <option value="Not Started">Not Started</option>
+                <option value="Attempted">Attempted</option>
+                <option value="Solved">Solved</option>
+                <option value="Needs Revision">Needs Revision</option>
+              </select>
+              <button class="btn btn-secondary btn-sm" id="pdBookmarkBtn">Bookmark</button>
+              <button class="btn btn-secondary btn-sm" id="pdRevisionBtn">Schedule Revision</button>
+              <a class="btn btn-accent btn-sm" id="pdLeetCodeLink" href="#" target="_blank" rel="noopener noreferrer">Open on LeetCode</a>
+            </div>
+          </div>
+
+          <div class="surface-block" id="pdHeaderCard"></div>
+
+          <div class="lab-toolbar">
+            <div class="segmented" id="pdTabs">
+              <button class="seg-btn active" data-pd-tab="notes">Personal Notes (Markdown)</button>
+              <button class="seg-btn" data-pd-tab="solutions">Solutions &amp; Comparison</button>
+              <button class="seg-btn" data-pd-tab="history">Submission History</button>
+            </div>
+            <span class="mono-dim" id="pdSaveIndicator">Ready</span>
+          </div>
+
+          <div class="pd-panel active" id="pd-tab-notes">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Structured Study Notes</h4>
+                <div class="btn-group">
+                  <button class="btn btn-ghost btn-xs" id="pdPreviewToggleBtn">Toggle Markdown Preview</button>
+                  <button class="btn btn-accent btn-xs" id="pdSaveNotesBtn">Save Notes</button>
+                </div>
+              </div>
+              <div id="pdNotesEditorGrid" class="notes-grid">
+                <div class="field"><label>Intuition</label><textarea id="pdNoteIntuition" rows="2"></textarea></div>
+                <div class="field"><label>Brute-force Approach</label><textarea id="pdNoteBrute" rows="2"></textarea></div>
+                <div class="field"><label>Optimized Approach</label><textarea id="pdNoteOpt" rows="2"></textarea></div>
+                <div class="field"><label>Time Complexity</label><input type="text" id="pdNoteTime" placeholder="e.g. O(n)" /></div>
+                <div class="field"><label>Space Complexity</label><input type="text" id="pdNoteSpace" placeholder="e.g. O(n)" /></div>
+                <div class="field"><label>Mistakes Made</label><textarea id="pdNoteMistakes" rows="2"></textarea></div>
+                <div class="field"><label>Important Observations</label><textarea id="pdNoteObs" rows="2"></textarea></div>
+                <div class="field"><label>Personal Revision Comments</label><textarea id="pdNoteRev" rows="2"></textarea></div>
+                <div class="field" style="grid-column: 1 / -1;"><label>C++ Code Snippet</label><textarea id="pdNoteCode" class="mono" rows="5"></textarea></div>
+              </div>
+              <div id="pdNotesPreviewBox" class="info-callout" style="display:none;"></div>
+            </div>
+          </div>
+
+          <div class="pd-panel" id="pd-tab-solutions">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Add Solution Approach</h4>
+              </div>
+              <div class="lc-add-grid">
+                <input type="text" id="pdSolName" placeholder="Approach (e.g. Brute Force / Two Pointers)" />
+                <input type="text" id="pdSolTime" placeholder="Time (e.g. O(n))" />
+                <input type="text" id="pdSolSpace" placeholder="Space (e.g. O(1))" />
+                <button class="btn btn-accent btn-sm" id="pdSolAddBtn">Save Approach</button>
+              </div>
+              <textarea id="pdSolExp" rows="2" placeholder="Explanation & trade-offs..."></textarea>
+              <textarea id="pdSolCode" class="mono" rows="5" placeholder="// C++17 solution..."></textarea>
+            </div>
+            <div class="ref-grid" id="pdSolutionsList" style="margin-top: 14px;"></div>
+          </div>
+
+          <div class="pd-panel" id="pd-tab-history">
+            <div class="surface-block">
+              <div class="block-head">
+                <h4>Problem Submission &amp; Attempt History</h4>
+              </div>
+              <div class="problem-list" id="pdSubHistoryList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== TOPIC PROGRESS ==================== -->
+        <section class="view" id="view-topics">
+          <div class="editorial-header">
+            <div>
+              <p class="mono-kicker">AUTOMATIC TAG AGGREGATION</p>
+              <h3>Topic Progress</h3>
+              <p class="editorial-lead">Automatically updated whenever problems are solved, synced, or imported across all tags.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="topicsRefreshBtn">Refresh Topics</button>
+          </div>
+          <div class="ref-grid" id="topicsGrid"></div>
+        </section>
+
+        <!-- ==================== SOLUTION LIBRARY ==================== -->
+        <section class="view" id="view-solutions">
+          <div class="lab-toolbar">
+            <div class="segmented" id="solLibraryModeTabs">
+              <button class="seg-btn active" data-sol-mode="solutions">Saved Solutions</button>
+              <button class="seg-btn" data-sol-mode="notes">Searchable Notes</button>
+            </div>
+            <div class="toolbar-controls">
+              <input type="text" id="solSearchInput" placeholder="Search problem, approach, or notes..." />
+              <select id="solTopicFilter"><option value="all">All Topics</option></select>
+              <select id="solCompFilter">
+                <option value="all">All Complexities</option>
+                <option value="O(1)">O(1)</option>
+                <option value="O(log n)">O(log n)</option>
+                <option value="O(n)">O(n)</option>
+                <option value="O(n log n)">O(n log n)</option>
+                <option value="O(n^2)">O(n^2)</option>
+              </select>
+            </div>
+            <span class="mono-dim" id="solCountText">0 solutions</span>
+          </div>
+          <div class="ref-grid" id="solutionsLibraryGrid"></div>
+          <div class="ref-grid" id="notesLibraryGrid" style="display:none;"></div>
+        </section>
+
+        <!-- ==================== ABOUT ==================== -->
+        <section class="view" id="view-about">
+          <div class="editorial-header">
+            <div>
+              <p class="mono-kicker">COLLEGE PRESENTATION · RELEASE v1.0.0</p>
+              <h3>DSA Manager</h3>
+              <p class="editorial-lead">
+                An interactive Data Structures &amp; Algorithms visualization, practice, and personal learning tracker powered by a native C++17 engine.
+              </p>
+            </div>
+            <span class="meta-chip mono">Version 1.0.0</span>
+          </div>
+
+          <div class="editorial-grid two-even">
+            <section class="surface-block">
+              <div class="block-head"><h4>Main Objectives</h4></div>
+              <ul class="about-list">
+                <li>Execute all sorting, searching, container, tree, and graph algorithms natively in C++17 without mocked browser logic.</li>
+                <li>Provide step-by-step interactive visualizations alongside measured runtime vs theoretical Big-O comparisons.</li>
+                <li>Offer a structured DSA curriculum roadmap, LeetCode problem catalogue, Markdown study notes, and spaced-repetition revision.</li>
+                <li>Persist all learning progress, notes, solutions, and analytics locally across restarts.</li>
+              </ul>
+            </section>
+
+            <section class="surface-block">
+              <div class="block-head"><h4>Technologies Used</h4></div>
+              <div class="complexity-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0;">
+                <div class="cx-box"><span>Core Engine</span><strong>C++17 (OOP + STL)</strong></div>
+                <div class="cx-box"><span>Backend HTTP</span><strong>POSIX Sockets + libcurl</strong></div>
+                <div class="cx-box"><span>Build &amp; Tests</span><strong>CMake + CTest</strong></div>
+                <div class="cx-box"><span>Frontend &amp; Ext</span><strong>HTML/CSS/JS + MV3</strong></div>
+              </div>
+            </section>
+          </div>
+
+          <div class="editorial-grid two-even">
+            <section class="surface-block">
+              <div class="block-head"><h4>Architecture Overview</h4></div>
+              <p class="muted-text">
+                <strong>1. Presentation Layer (web/ &amp; browser-extension/):</strong> Single-page dark developer workspace using Fetch API and SVG/DOM visualizations, paired with a minimal-permission Chromium Manifest V3 extension.<br /><br />
+                <strong>2. Transport Layer (HttpServer):</strong> Lightweight multi-route HTTP/1.1 server on <code>127.0.0.1</code> serving static assets and JSON endpoints.<br /><br />
+                <strong>3. Core Domain &amp; Persistence (dsa_core):</strong> Object-oriented C++17 modules (<code>Algorithms</code>, <code>DataStructures</code>, <code>BinarySearchTree</code>, <code>Graph</code>, <code>QuizEngine</code>, <code>LearningHub</code>, <code>IntelligenceHub</code>) backed by local flat-file persistence.
+              </p>
+            </section>
+
+            <section class="surface-block">
+              <div class="block-head"><h4>Key Features &amp; Learning Outcomes</h4></div>
+              <ul class="about-list">
+                <li>Sorting, Searching, Stack, Queue, Singly Linked List, Binary Search Tree, and BFS/DFS Graph visualizers.</li>
+                <li>Chrono microsecond Complexity Comparator, randomized Quiz Arena, and C++17 Code Library.</li>
+                <li>Full Question Library, automatic per-topic progress, structured Markdown notes, Solution Library, and Spaced Repetition Revision.</li>
+                <li>Academic outcomes: practical mastery of C++17 memory safety, OOP polymorphism, STL containers, HTTP networking, and algorithmic complexity.</li>
+              </ul>
+              <div class="info-callout mono" style="font-size: 0.78rem;">
+                DSA Manager v1.0.0 · C++17 Academic Software Project · Local-First Storage
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-backdrop" id="confirmModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+    <div class="modal-box">
+      <h4 id="confirmModalTitle">Confirm Action</h4>
+      <p class="muted-text" id="confirmModalMessage">Are you sure?</p>
+      <div class="btn-group" style="justify-content: flex-end;">
+        <button class="btn btn-ghost btn-sm" id="confirmCancelBtn">Cancel</button>
+        <button class="btn btn-danger btn-sm" id="confirmOkBtn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

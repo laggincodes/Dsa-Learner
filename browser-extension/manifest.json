@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "DSA Manager – LeetCode Sync Helper",
+  "version": "1.0.0",
+  "description": "Detects Accepted submissions on LeetCode problem pages and sends non-sensitive metadata to your local DSA Manager C++ backend.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8080/*",
+    "http://localhost:8080/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DSA Manager Sync"
+  }
+}
